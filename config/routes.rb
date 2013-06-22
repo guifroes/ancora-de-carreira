@@ -1,6 +1,8 @@
 AncoraDeCarreira::Application.routes.draw do
+  #get "home/index"
   get "say/hello"
   get "say/goodbye"
+  root "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
