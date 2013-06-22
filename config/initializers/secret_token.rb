@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-AncoraDeCarreira::Application.config.secret_key_base = '55196f95f389cdb117bd4abb3970136959c07adc2e872c70d4f2a277cf75dbae7a4c912c7b86c34f55e5d3b91ed2307286cdccfbc8d4c5001efbf84b6050e162'
+AncoraDeCarreira::Application.config.secret_key_base = '65f1c20772e09b433f9888f4924a1ccd131251e67d97172e284045df5132fd10e1bbbbd15fa971e22dd51fe7b8bb405a0456aaab52f461d662791584a459979d'
