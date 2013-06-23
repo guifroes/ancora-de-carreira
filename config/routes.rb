@@ -2,6 +2,7 @@ AncoraDeCarreira::Application.routes.draw do
   #resources :answers
   scope :api do
     get "/answers(.:format)" => "answers#index"
+    post "/answers(.:format)" => "answers#create"
   end
 
   #get "home/index"
