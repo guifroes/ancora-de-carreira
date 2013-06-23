@@ -1,1 +1,1 @@
-window.App = angular.module('ancora', ['ngResource', 'ancora.services'])
+window.App = angular.module('ancora', ['ngResource'])
