@@ -1,12 +1,17 @@
 <div class="container" ng-controller="MainCtrl" >
   <div class="hero-unit"> 
+    <span>Name: </span>
+    <input type="text" ng-model="name">
+    <input type="text" ng-model="email">
+    <button type="button" class="btn btn-large btn-primary" ng-click="create()">Salvar</button> 
+
+
     <table>
    <tr ng-repeat="question in questions">
       <td>
         {{question.text}}
       </td>
       <td>
-        bla bla
       </td>
     </tr> 
   </div>
