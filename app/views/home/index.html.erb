@@ -1,9 +1,13 @@
 <div class="container" ng-controller="MainCtrl" >
   <div class="hero-unit"> 
-   <div ng-repeat="lala in questions">
-      <p>{{lala.text}}</p>
-    </div> 
-  <p>{{questions[0].text}}<p>
+    <table>
+   <tr ng-repeat="question in questions">
+      <td>
+        {{question.text}}
+      </td>
+      <td>
+        bla bla
+      </td>
+    </tr> 
   </div>
-
 </div>

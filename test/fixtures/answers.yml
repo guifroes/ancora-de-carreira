@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: Guilherme Froes
+  email: guilherme.froes@gmail.com
+  answer_1: 1
+  answer_2: 5
+  answer_3: 10
+  final_result: Some final result
+
+two:
+  name: Jose da Silva
+  email: someemail@email.com
+  answer_1: 3
+  answer_2: 4
+  answer_3: 9
+  final_result: Some other result
