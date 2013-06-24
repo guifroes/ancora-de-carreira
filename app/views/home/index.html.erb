@@ -1,18 +1,50 @@
 <div class="container" ng-controller="MainCtrl" >
+  <p>
+    <%=image_tag("logo-share-pequeno.jpg", alt: "SHARE - Smart Human Academic Resource")%>
+  </p>
   <div class="hero-unit"> 
-    <span>Name: </span>
-    <input type="text" ng-model="name">
-    <input type="text" ng-model="email">
-    <button type="button" class="btn btn-large btn-primary" ng-click="create()">Salvar</button> 
+    <p class="text-center">
+      <h2>Âncora de carreira</h2>
+    </p>
+    <div id="introduction">
+      <h3>Objetivo</h3>
+      <p>
+        O objetivo deste inventário é auxiliar você, aluno iniciante, a fazer uma primeira definição de meta profissional, utilizando o conhecimento dos tipos de carreiras. Posteriormente, você poderá mudar sua meta e pesquisar novas possibilidades.
+      </p> 
+      <p>
+        A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado. 
+      </p>
+      <p>A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado. </p>
 
-
-    <table>
-   <tr ng-repeat="question in questions">
-      <td>
-        {{question.text}}
-      </td>
-      <td>
-      </td>
-    </tr> 
+      <p class="text-right">
+      <a type="button" class="btn btn-large btn-primary" href="#">Continuar</a>
+      </p>
+    </div>
+    <div style="display: none">
+      <p>
+        <span>Name: </span>
+        <input type="text" ng-model="answer.name">
+      </p>
+      <p>
+        <span>Email: </span>
+        <input type="text" ng-model="answer.email">
+      </p>
+      <span>currently selected for first {{answer.questions[0].answer}}</span>
+      <button type="button" class="btn btn-large btn-primary">Salvar</button> 
+      <table class="table-striped">
+      <tr ng-repeat="question in answer.questions">
+        <td>
+          <p>{{question.text}}</p>
+        </td>
+        <td>
+          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
+          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
+          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
+          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
+          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
+          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
+        </td>
+      </tr>
+    </div>
   </div>
 </div>
