@@ -6,21 +6,27 @@
     <p class="text-center">
       <h2>Âncoras de carreira</h2>
     </p>
-    <div id="introduction">
-      <h3>Objetivo</h3>
-      <p>
-        O objetivo deste inventário é auxiliar você, aluno iniciante, a fazer uma primeira definição de meta profissional, utilizando o conhecimento dos tipos de carreiras. Posteriormente, você poderá mudar sua meta e pesquisar novas possibilidades.
-      </p> 
-      <p>
-        A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado. 
-      </p>
+    <div ng-switch="getCurrentStep()">
+      <div ng-switch-when="objective">
+        <h3>Objetivo</h3>
+        <p>O objetivo deste inventário é auxiliar você, aluno iniciante, a fazer uma primeira definição de meta profissional, utilizando o conhecimento dos tipos de carreiras. Posteriormente, você poderá mudar sua meta e pesquisar novas possibilidades.</p> 
+      <p>A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado.</p>
       <p>A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado. </p>
-
-      <p class="text-right">
-      <a type="button" class="btn btn-large btn-primary" href="#">Continuar</a>
-      </p>
+      </div>
+      <div ng-switch-when="inventory">
+        <h3>Inventário das orientações de carreira</h3>
+        <p>A finalidade deste questionário é estimular sua reflexão sobre o que você valoriza na busca da realização profissional. É muito fácil ser tendencioso nas respostas, mas se você for sincero poderá conhecer um pouco mais de si mesmo para começar sua caminhada na preparação de sua carreira profissional.</p> 
+        <p>Procure responder às perguntas tão honestamente quanto possível e trabalhar rapidamente.</p>
+      </div>
+      <div ng-switch-when="instructions">
+        here would go the third one
+      </div>
     </div>
-    <div style="display: none">
+    <div class="text-right">
+      <a class="btn" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</a>
+      <a class="btn btn-primary" ng-click="handleNext(dismiss)">{{getNextLabel()}}</a>
+    </div>
+      <div style="display: none">
       <p>
         <span>Name: </span>
         <input type="text" ng-model="answer.name">
