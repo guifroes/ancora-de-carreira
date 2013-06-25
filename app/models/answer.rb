@@ -1,3 +1,4 @@
 class Answer < ActiveRecord::Base
-  validates_presence_of :name, :email, :answer_1, :answer_2, :answer_3, :final_result
+  has_many :questions_answers
+  validates_presence_of :name, :email, :institution, :course, :final_result
 end

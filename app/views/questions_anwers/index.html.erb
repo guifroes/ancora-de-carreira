@@ -1,0 +1,25 @@
+<h1>Listing questions_anwers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions_anwers.each do |questions_anwer| %>
+      <tr>
+        <td><%= link_to 'Show', questions_anwer %></td>
+        <td><%= link_to 'Edit', edit_questions_anwer_path(questions_anwer) %></td>
+        <td><%= link_to 'Destroy', questions_anwer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Questions anwer', new_questions_anwer_path %>

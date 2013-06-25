@@ -1,4 +1,6 @@
 AncoraDeCarreira::Application.routes.draw do
+  resources :questions_anwers
+
   #resources :answers
   scope :api do
     get "/answers(.:format)" => "answers#index"

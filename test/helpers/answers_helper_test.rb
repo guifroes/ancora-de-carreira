@@ -15,7 +15,7 @@ class AnswersHelperTest < ActionView::TestCase
   test "should be invalid if missing data" do
     answer = Answer.new
     assert !answer.valid?
-    [:name, :email, :answer_1, :answer_2, :answer_3, :final_result].each do |field_name|
+    [:name, :email, :institution, :course, :final_result].each do |field_name|
       assert answer.errors.keys.include? field_name
     end
   end
