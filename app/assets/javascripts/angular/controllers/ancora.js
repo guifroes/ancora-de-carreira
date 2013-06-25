@@ -64,14 +64,7 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
                 final_result: "bla bla"
     }};
 
-    var postData = "{ \"answer\": { \"name\": \""+ scope.answer.name +"\", \"email\": \""+ scope.answer.email+"\", \"answer_1\": \"" + scope.answer.questions[0].answer + "\", \"answer_2\": \"" + scope.answer.questions[1].answer+ "\", \"answer_3\": \"" + scope.answer.questions[2].answer + "\", \"final_result\": \"bla bla\" } } ";
     http.post("/api/answers/", data);
-  };
-
-  scope.toggleShow = false;
-
-  scope.toggle = function() {
-    scope.toggleShow = !scope.toggleShow;
   };
 
   var questions = [{text: 'Sonho em ser tão bom no que faço de tal forma que meus conhecimentos especializados sejam constantemente procurados.', answer:{}},
@@ -117,6 +110,7 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
 
   scope.answer = {name:"", email:"", institution: "", course: "", questions: questions};
 }]);
+
 app.filter('startFrom', function() {
   return function(input, start) {
     start = +start; //parse to int
