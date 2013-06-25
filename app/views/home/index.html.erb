@@ -6,7 +6,7 @@
     <p class="text-center">
       <h2>Âncoras de carreira</h2>
     </p>
-    <button class="btn btn-large" ng-click="create()">Save</button>
+    <!--<button class="btn btn-large" ng-click="create()">Save</button>-->
     <div ng-switch="getCurrentStep()">
       <div ng-switch-when="objective">
         <h3>Objetivo</h3>
@@ -43,117 +43,45 @@
         </fieldset>
       </div>
       <div ng-switch-when="questions1">
-        <ul>
-          <li ng-repeat="question in answer.questions | startFrom:0 | limitTo: 5">
-          {{question.text}}
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-
-          </li>
-        </ul>
+        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:0 | limitTo: 5">
+          <ng-include src="'mySnippet'"></ng-include>
+        </div>
       </div>
       <div ng-switch-when="questions2">
-        <ul>
-          <li ng-repeat="question in answer.questions | startFrom:5 | limitTo: 5">
-          {{question.text}}
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-
-          </li>
-        </ul>
+        <div class="row question-row"  ng-repeat="question in answer.questions | startFrom:5 | limitTo: 5">
+          <ng-include src="'mySnippet'"></ng-include>
+        </div>
       </div>
-     <div ng-switch-when="questions3">
-        <ul>
-          <li ng-repeat="question in answer.questions | startFrom:10 | limitTo: 5">
-          {{question.text}}
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-
-          </li>
-        </ul>
+      <div ng-switch-when="questions3">
+        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:10 | limitTo: 5">
+          <ng-include src="'mySnippet'"></ng-include>
+        </div>
       </div>
-     <div ng-switch-when="questions4">
-        <ul>
-          <li ng-repeat="question in answer.questions | startFrom:15 | limitTo: 5">
-          {{question.text}}
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-
-          </li>
-        </ul>
+      <div ng-switch-when="questions4">
+        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:15 | limitTo: 5">
+          <ng-include src="'mySnippet'"></ng-include>
+        </div>
       </div>
-     <div ng-switch-when="questions5">
-        <ul>
-          <li ng-repeat="question in answer.questions | startFrom:20 | limitTo: 5">
-          {{question.text}}
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-
-          </li>
-        </ul>
+      <div ng-switch-when="questions5">
+        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:20 | limitTo: 5">
+            <ng-include src="'mySnippet'"></ng-include>
+        </div>
       </div>
-     <div ng-switch-when="questions6">
-        <ul>
-          <li ng-repeat="question in answer.questions | startFrom:25 | limitTo: 5">
-          {{question.text}}
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-          </li>
-        </ul>
+      <div ng-switch-when="questions6">
+        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:25 | limitTo: 5">
+          <ng-include src="'mySnippet'"></ng-include>
+        </div>
       </div>
       <div ng-switch-when="questions7">
-        <ul>
-          <li ng-repeat="question in answer.questions | startFrom:30 | limitTo: 5">
-          {{question.text}}
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-          </li>
-        </ul>
+        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:30 | limitTo: 5">
+          <ng-include src="'mySnippet'"></ng-include>
+        </div>
       </div>
       <div ng-switch-when="questions8">
-        <ul>
-          <li ng-repeat="question in answer.questions | startFrom:35 | limitTo: 5">
-          {{question.text}}
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-          </li>
-        </ul>
+        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:35 | limitTo: 5">
+          <ng-include src="'mySnippet'"></ng-include>
+        </div>
       </div>
-
-
-
     </div>
     <div class="text-right">
       <a class="btn" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</a>
@@ -179,3 +107,15 @@
     </div>
   </div>
 </div>
+
+<script type='text/ng-template' id="mySnippet">
+  <div class="span7">{{question.text}}</div>
+  <div class="span3 text-right"> 
+    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
+    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
+    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
+    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
+    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
+    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
+  </div>
+</script>

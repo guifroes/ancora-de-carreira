@@ -51,7 +51,9 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
     var answers = [];
 
     for(var i = 0; i < scope.answer.questions.length; i++) {
-      answers.push({value: scope.answer.questions[i].answer});
+      if(scope.answer.questions[i].answer!== undefined) {
+        answers.push({value: scope.answer.questions[i].answer});
+      }
     }
 
     var data = {
