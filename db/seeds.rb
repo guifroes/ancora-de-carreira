@@ -9,5 +9,5 @@
 Answer.create(name: 'Guilherme Froes',
              email: 'guilherme.froes@gmail.com',
              institution: 'puc',
-             couse: 'computacao',
+             course: 'computacao',
              final_result: 'bla bla')

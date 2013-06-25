@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    render json: Answer.all
+    render json: Answer.all(:include => :question_answers)
   end
 
   def create
