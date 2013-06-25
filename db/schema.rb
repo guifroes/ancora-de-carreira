@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 201306250116000) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "answer_id"
+    t.text     "value"
   end
 
 end

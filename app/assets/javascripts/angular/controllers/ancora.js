@@ -51,7 +51,7 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
     var answers = [];
 
     for(var i = 0; i < scope.answer.questions.length; i++) {
-      answers.push(scope.answer.questions[i].answer);
+      answers.push({value: scope.answer.questions[i].answer});
     }
 
     var data = {
@@ -60,7 +60,7 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
                 email: scope.answer.email,
                 institution: scope.answer.institution,
                 course: scope.answer.course,
-                results: answers,
+                question_answers_attributes: answers,
                 final_result: "bla bla"
     }};
 

@@ -5,9 +5,8 @@ class AnswersHelperTest < ActionView::TestCase
     @answer_defaults = {
       name: 'Guilherme Froes',
       email: 'guilherme.froes@gmail.com',
-      answer_1: 2,
-      answer_2: 10,
-      answer_3: 6,
+      institution: 'PUC',
+      course: 'Ciencia da computacao',
       final_result: 'some result'
     }
   end
