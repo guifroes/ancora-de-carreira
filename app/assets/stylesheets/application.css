@@ -11,12 +11,13 @@
  *= require_self
  *= require_tree .
  */
-.question-row {
+div.question-row {
   background-color: gainsboro;
   margin-bottom: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10;
   border-radius: 10px;
+  margin-left: 10px;
 }
 
 .content {
@@ -26,6 +27,12 @@
   border-size: 2px;
   */
 }
+
+.content-scroll {
+  height: 320px;
+  overflow: auto;
+}
+
 
 .question-text {
   font-size: 16px;

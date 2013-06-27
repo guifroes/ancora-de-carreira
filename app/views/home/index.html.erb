@@ -84,8 +84,10 @@
       </div>
       <div ng-switch-when="select" class="content" >
         <p>Agora, reveja suas respostas e, entre as quais deu pontos mais altos (topo da lista), selecione os três itens que lhe pareçam os mais verdadeiros.</p>
-        <div class="row question-row" ng-repeat="question in availableAnswers">
-        <div class="span7">{{question.text}}</div>
+        <div class="content-scroll">
+          <div class="row question-row" ng-repeat="question in availableAnswers">
+            <div class="span7 question-text">{{question.text}}</div>
+          </div>
         </div>
       </div>
     </div>
