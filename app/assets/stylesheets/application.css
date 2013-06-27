@@ -18,3 +18,15 @@
   -moz-border-radius: 10;
   border-radius: 10px;
 }
+
+.content {
+  height: 410px;
+ /* border-style: solid;
+  border-color: red;
+  border-size: 2px;
+  */
+}
+
+.question-text {
+  font-size: 16px;
+}

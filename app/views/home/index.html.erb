@@ -3,23 +3,21 @@
     <%=image_tag("logo-share-pequeno.jpg", alt: "SHARE - Smart Human Academic Resource")%>
   </p>
   <div class="hero-unit"> 
-    <p class="text-center">
-      <h2>Âncoras de carreira</h2>
-    </p>
+    <!--<h2>Âncoras de carreira</h2>-->
     <!--<button class="btn btn-large" ng-click="create()">Save</button>-->
     <div ng-switch="getCurrentStep()">
-      <div ng-switch-when="objective">
+      <div ng-switch-when="objective" class="content">
         <h3>Objetivo</h3>
         <p>O objetivo deste inventário é auxiliar você, aluno iniciante, a fazer uma primeira definição de meta profissional, utilizando o conhecimento dos tipos de carreiras. Posteriormente, você poderá mudar sua meta e pesquisar novas possibilidades.</p> 
       <p>A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado.</p>
       <p>A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado. </p>
       </div>
-      <div ng-switch-when="inventory">
+      <div ng-switch-when="inventory" class="content">
         <h3>Inventário das orientações de carreira</h3>
         <p>A finalidade deste questionário é estimular sua reflexão sobre o que você valoriza na busca da realização profissional. É muito fácil ser tendencioso nas respostas, mas se você for sincero poderá conhecer um pouco mais de si mesmo para começar sua caminhada na preparação de sua carreira profissional.</p> 
         <p>Procure responder às perguntas tão honestamente quanto possível e trabalhar rapidamente.</p>
       </div>
-      <div ng-switch-when="instructions">
+      <div ng-switch-when="instructions" class="content">
         <h3>Como classificar os itens</h3>
         <p>Para cada um dos próximos 40 itens,  classifique o quanto este item é verdadeiro para você em geral, atribuindo-lhe um número de 1 a 6. Quanto maior o número, mais este item é verdadeiro para você. Por exemplo, se o item diz “Sonho em ser o presidente de uma empresa”, você o classificaria assim:</p>
         <ul>
@@ -30,8 +28,9 @@
         </ul>
         <p>Passe para a próxima página e comece sua autoavaliação.</p>
       </div>
-      <div ng-switch-when="personal">
-        <span>isse form esta feio. sugestoes?</span>
+      <div ng-switch-when="personal" class="content" >
+        <h3>Dados pessoais</h3>
+        <span>(Esse form esta feio. sugestoes?)</span>
         <fieldset>
           <label>Nome</label>
           <input type="text" ng-model="answer.name">
@@ -43,47 +42,47 @@
           <input type="text" ng-model="answer.course">
         </fieldset>
       </div>
-      <div ng-switch-when="questions1">
+      <div ng-switch-when="questions1" class="content" >
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:0 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
-      <div ng-switch-when="questions2">
+      <div ng-switch-when="questions2" class="content" >
         <div class="row question-row"  ng-repeat="question in answer.questions | startFrom:5 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
-      <div ng-switch-when="questions3">
+      <div ng-switch-when="questions3" class="content" >
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:10 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
-      <div ng-switch-when="questions4">
+      <div ng-switch-when="questions4" class="content" >
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:15 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
-      <div ng-switch-when="questions5">
+      <div ng-switch-when="questions5" class="content" >
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:20 | limitTo: 5">
             <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
-      <div ng-switch-when="questions6">
+      <div ng-switch-when="questions6" class="content" >
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:25 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
-      <div ng-switch-when="questions7">
+      <div ng-switch-when="questions7" class="content" >
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:30 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
-      <div ng-switch-when="questions8">
+      <div ng-switch-when="questions8" class="content" >
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:35 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
-      <div ng-switch-when="select">
+      <div ng-switch-when="select" class="content" >
         <p>Agora, reveja suas respostas e, entre as quais deu pontos mais altos (topo da lista), selecione os três itens que lhe pareçam os mais verdadeiros.</p>
         <div class="row question-row" ng-repeat="question in availableAnswers">
         <div class="span7">{{question.text}}</div>
@@ -91,8 +90,8 @@
       </div>
     </div>
     <div class="text-right">
-      <a class="btn" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</a>
-      <a class="btn btn-primary" ng-click="handleNext(dismiss)">{{getNextLabel()}}</a>
+      <a class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</a>
+      <a class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</a>
     </div>
       <div style="display: none">
       <span>currently selected for first {{answer.questions[0].answer}}</span>
@@ -116,7 +115,7 @@
 </div>
 
 <script type='text/ng-template' id="mySnippet">
-  <div class="span7">{{question.text}}</div>
+  <div class="span7 question-text">{{question.text}}</div>
   <div class="span3 text-right btn-toolbar">
   <div class="btn-group" ng-model="question.answer" bs-buttons-radio>
     <button type="button" class="btn" value="1">1</button>
