@@ -31,6 +31,7 @@
         <p>Passe para a próxima página e comece sua autoavaliação.</p>
       </div>
       <div ng-switch-when="personal">
+        <span>isse form esta feio. sugestoes?</span>
         <fieldset>
           <label>Nome</label>
           <input type="text" ng-model="answer.name">
@@ -80,6 +81,12 @@
       <div ng-switch-when="questions8">
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:35 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
+        </div>
+      </div>
+      <div ng-switch-when="select">
+        <p>Agora, reveja suas respostas e, entre as quais deu pontos mais altos (topo da lista), selecione os três itens que lhe pareçam os mais verdadeiros.</p>
+        <div class="row question-row" ng-repeat="question in availableAnswers">
+        <div class="span7">{{question.text}}</div>
         </div>
       </div>
     </div>
