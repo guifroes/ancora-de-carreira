@@ -117,12 +117,14 @@
 
 <script type='text/ng-template' id="mySnippet">
   <div class="span7">{{question.text}}</div>
-  <div class="span3 text-right"> 
-    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-    <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
+  <div class="span3 text-right btn-toolbar">
+  <div class="btn-group" ng-model="question.answer" bs-buttons-radio>
+    <button type="button" class="btn" value="1">1</button>
+    <button type="button" class="btn" value="2">2</button>
+    <button type="button" class="btn" value="3">3</button>
+    <button type="button" class="btn" value="4">4</button>
+    <button type="button" class="btn" value="5">5</button>
+    <button type="button" class="btn" value="6">6</button>
   </div>
+</div>
 </script>
