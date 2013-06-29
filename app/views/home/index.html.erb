@@ -120,12 +120,12 @@
   <div class="span7 question-text">{{question.text}}</div>
   <div class="span3 text-right btn-toolbar">
   <div class="btn-group" ng-model="question.answer" bs-buttons-radio>
-    <button type="button" class="btn" value="1">1</button>
-    <button type="button" class="btn" value="2">2</button>
-    <button type="button" class="btn" value="3">3</button>
-    <button type="button" class="btn" value="4">4</button>
-    <button type="button" class="btn" value="5">5</button>
-    <button type="button" class="btn" value="6">6</button>
+    <button type="button" class="btn" ng-class="{'btn-primary': question.answer == 1}" value="1">1</button>
+    <button type="button" ng-class="{'btn-primary': question.answer == 2}" class="btn" value="2">2</button>
+    <button type="button" ng-class="{'btn-primary': question.answer == 3}" class="btn" value="3">3</button>
+    <button type="button" ng-class="{'btn-primary': question.answer == 4}" class="btn" value="4">4</button>
+    <button type="button" ng-class="{'btn-primary': question.answer == 5}" class="btn" value="5">5</button>
+    <button type="button" ng-class="{'btn-primary': question.answer == 6}" class="btn" value="6">6</button>
   </div>
 </div>
 </script>

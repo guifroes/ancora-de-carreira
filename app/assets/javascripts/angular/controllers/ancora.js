@@ -55,6 +55,9 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
     }
   };
 
+  scope.select = function(value) {
+      scope.selected = value;
+  }
   var removeEmptyAnswers = function(array) {
     var result = [];
 
