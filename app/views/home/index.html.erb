@@ -1,21 +1,27 @@
 <div class="container" ng-controller="MainCtrl" >
-  <p>
-    <%=image_tag("logo-share-pequeno.jpg", alt: "SHARE - Smart Human Academic Resource")%>
-  </p>
+  <div class="top">
+    <div class="logo">
+      <p>
+        <%=image_tag("logo-share-pequeno.jpg", alt: "SHARE - Smart Human Academic Resource")%>
+      </p>
+    </div>
+    <div class="text-center title">
+      Âncoras de Carreira
+      <p class="reference">Extraído de Career Anchors de Edgar H. Schein</p>
+    </div>
+  </div>
   <div class="hero-unit"> 
-    <!--<h2>Âncoras de carreira</h2>-->
-    <!--<button class="btn btn-large" ng-click="create()">Save</button>-->
     <div ng-switch="getCurrentStep()">
       <div ng-switch-when="objective" class="content">
         <h3>Objetivo</h3>
-        <p>O objetivo deste inventário é auxiliar você, aluno iniciante, a fazer uma primeira definição de meta profissional, utilizando o conhecimento dos tipos de carreiras. Posteriormente, você poderá mudar sua meta e pesquisar novas possibilidades.</p> 
-      <p>A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado.</p>
-      <p>A âncora de carreira é uma combinação da autopercepção dos motivos e valores que representam o que cada um considera sucesso profissional. Tais âncoras podem indicar que caminhos podem levá-lo a sentir-se realizado. </p>
+        <p>Este inventário parte da sua auto percepção para identificar o que você valoriza como critério de sucesso profissional. Tais âncoras podem indicar que caminhos o levam a sentir-se realizado profissionalmente.</p>
+        <p>Nosso objetivo é auxiliá-lo a identificar uma meta profissional para a fase 1 do ciclo Share, utilizando o conhecimento dos tipos de carreiras. </p>
+        <p>Se você já tem uma meta, responda ao inventário e compare sua âncora de carreira com sua meta. Analise afinidades e dissonâncias. Se tiver dúvidas, escreva para “Tenho dúvida” e poderemos lhe orientar.</p>
+        <p>Se você ainda não tem uma meta, responda ao inventário para conhecer seu perfil de carreira. Posteriormente, você poderá mudar sua meta e pesquisar novas possibilidades.</p>
       </div>
       <div ng-switch-when="inventory" class="content">
-        <h3>Inventário das orientações de carreira</h3>
-        <p>A finalidade deste questionário é estimular sua reflexão sobre o que você valoriza na busca da realização profissional. É muito fácil ser tendencioso nas respostas, mas se você for sincero poderá conhecer um pouco mais de si mesmo para começar sua caminhada na preparação de sua carreira profissional.</p> 
-        <p>Procure responder às perguntas tão honestamente quanto possível e trabalhar rapidamente.</p>
+        <h3>Orientações para preenchimento</h3>
+        <p>É muito fácil ser tendencioso nas respostas, mas se você for sincero poderá conhecer um pouco mais de si mesmo para começar a preparação de sua carreira profissional. Procure responder às perguntas tão honestamente quanto possível e trabalhar rapidamente.</p>
       </div>
       <div ng-switch-when="instructions" class="content">
         <h3>Como classificar os itens</h3>
@@ -30,7 +36,6 @@
       </div>
       <div ng-switch-when="personal" class="content" >
         <h3>Dados pessoais</h3>
-        <span>(Esse form esta feio. sugestoes?)</span>
         <fieldset>
           <label>Nome</label>
           <input type="text" ng-model="answer.name">
@@ -43,47 +48,57 @@
         </fieldset>
       </div>
       <div ng-switch-when="questions1" class="content" >
+        <h3></h3>
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:0 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
       <div ng-switch-when="questions2" class="content" >
+        <h3></h3>
         <div class="row question-row"  ng-repeat="question in answer.questions | startFrom:5 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
       <div ng-switch-when="questions3" class="content" >
+        <h3></h3>
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:10 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
       <div ng-switch-when="questions4" class="content" >
+        <h3></h3>
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:15 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
       <div ng-switch-when="questions5" class="content" >
+        <h3></h3>
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:20 | limitTo: 5">
             <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
       <div ng-switch-when="questions6" class="content" >
+        <h3></h3>
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:25 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
       <div ng-switch-when="questions7" class="content" >
+        <h3></h3>
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:30 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
       <div ng-switch-when="questions8" class="content" >
+        <h3></h3>
         <div class="row question-row" ng-repeat="question in answer.questions | startFrom:35 | limitTo: 5">
           <ng-include src="'mySnippet'"></ng-include>
         </div>
       </div>
       <div ng-switch-when="select" class="content" >
-        <p>Agora, reveja suas respostas e, entre as quais deu pontos mais altos (topo da lista), selecione os três itens que lhe pareçam os mais verdadeiros.</p>
+        <h3></h3>
+        <p>Agora, reveja suas respostas e localize todos os itens aos quais deu pontos mais altos.</p>
+        <p>Selecione os TRÊS itens que lhe pareçam os mais verdadeiros.</p>
         <div class="content-scroll">
           <div class="row question-row" ng-repeat="question in availableAnswers">
             <div class="span7 question-text">{{question.text}}</div>
@@ -91,6 +106,7 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="text-right">
       <a class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</a>
       <a class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</a>

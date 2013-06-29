@@ -20,9 +20,31 @@ div.question-row {
   margin-left: 10px;
 }
 
+.top {
+  display: block;
+  overflow: auto;
+}
+
+.logo {
+  float: left;
+}
+
+.title {
+  display: block;
+  margin-top: 20px;
+  font-size: 24px;
+
+}
+
+.reference {
+  font-size: 15px;
+}
+
 .content {
-  height: 410px;
- /* border-style: solid;
+  height: 375px;
+  margin: 0px;
+  padding: 0px;
+/* border-style: solid;
   border-color: red;
   border-size: 2px;
   */
@@ -35,5 +57,5 @@ div.question-row {
 
 
 .question-text {
-  font-size: 16px;
+  font-size: 15px;
 }
