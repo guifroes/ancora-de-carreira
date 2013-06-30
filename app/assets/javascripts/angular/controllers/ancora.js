@@ -44,25 +44,33 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
   };
 
   scope.handleNext = function(dismiss) {
-//    if(scope.step === 11) {
- //     var temp = removeEmptyAnswers(scope.answer.questions);
-  //    var sortedAnswers = temp.sort(compareAnswers);
-//
- //     scope.availableAnswers = sortedAnswers;
-  //    scope.step +=1;
-   // }
 
     if(scope.isLastStep()) {
       dismiss();
     } else {
       if(scope.step === 11) {
-  //      var temp = removeEmptyAnswers(scope.answer.questions);
         var temp = scope.answer.questions.slice();
         var sortedAnswers = temp.sort(compareAnswers);
 
         scope.availableAnswers = sortedAnswers;
       }
+      else if (scope.step === 12) {
+        calculateResult();
+      }
       scope.step += 1;
+    }
+  };
+
+  var calculateResult = function() {
+    addPointsForSelected();
+  };
+
+  var addPointsForSelected = function() {
+    for (var i = 0; i < scope.availableAnswers.length; i++) {
+      if(scope.availableAnswers[i].selected)
+        scope.availableAnswers[i].final_answer = parseInt(scope.availableAnswers[i].answer) + 4;
+      else
+        scope.availableAnswers[i].final_answer = parseInt(scope.availableAnswers[i].answer);
     }
   };
 
