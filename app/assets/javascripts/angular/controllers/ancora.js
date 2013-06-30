@@ -8,7 +8,7 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
     return Math.ceil(scope.answer.questions.length/scope.pageSize);
   }
 
-  scope.steps = ['objective', 'inventory', 'instructions', 'personal', 'questions1', 'questions2', 'questions3', 'questions4', 'questions5', 'questions6', 'questions7', 'questions8', 'select'];
+  scope.steps = ['objective', 'inventory', 'instructions', 'personal', 'questions1', 'questions2', 'questions3', 'questions4', 'questions5', 'questions6', 'questions7', 'questions8', 'select', 'result'];
   scope.step = 0;
 
   scope.isCurrentStep = function(step) {
@@ -31,8 +31,12 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
     return scope.step === (scope.steps.length - 1);
   };
 
+  scope.isResultStep = function() {
+    return scope.step === 12;
+  };
+
   scope.getNextLabel = function() {
-    return (scope.isLastStep()) ? 'Ver o resultado' : 'Próximo';
+    return (scope.isResultStep()) ? 'Ver o resultado' : 'Próximo';
   };
 
   scope.handlePrevious = function() {
@@ -40,17 +44,24 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
   };
 
   scope.handleNext = function(dismiss) {
-    if(scope.step === 11) {
-      var temp = removeEmptyAnswers(scope.answer.questions);
-      var sortedAnswers = temp.sort(compareAnswers);
-
-      scope.availableAnswers = sortedAnswers;
-      scope.step +=1;
-    }
+//    if(scope.step === 11) {
+ //     var temp = removeEmptyAnswers(scope.answer.questions);
+  //    var sortedAnswers = temp.sort(compareAnswers);
+//
+ //     scope.availableAnswers = sortedAnswers;
+  //    scope.step +=1;
+   // }
 
     if(scope.isLastStep()) {
       dismiss();
     } else {
+      if(scope.step === 11) {
+  //      var temp = removeEmptyAnswers(scope.answer.questions);
+        var temp = scope.answer.questions.slice();
+        var sortedAnswers = temp.sort(compareAnswers);
+
+        scope.availableAnswers = sortedAnswers;
+      }
       scope.step += 1;
     }
   };
@@ -62,7 +73,8 @@ typeof(scope.answer.questions[index + 2].answer) !== "undefined" &&
 typeof(scope.answer.questions[index + 3].answer) !== "undefined" &&
 typeof(scope.answer.questions[index + 4].answer) !== "undefined" 
 
-    return isValid;
+    //return isValid;
+    return true;
   };
 
   scope.select = function(value) {
@@ -149,9 +161,9 @@ typeof(scope.answer.questions[index + 4].answer) !== "undefined"
                    {id: 40, text: "Sempre procurei oportunidades de trabalho que minimizassem interferências com assuntos pessoais e familiares."}];
 
   function compareAnswers(a, b) {
-    if(a.value < b.value)
+    if(a.answer < b.answer)
       return 1;
-    if(a.value > b.value)
+    if(a.answer > b.answer)
       return -1;
     return 0;
   }
@@ -164,3 +176,4 @@ app.filter('startFrom', function() {
     return input.slice(start);
   }
 });
+
