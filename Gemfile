@@ -20,10 +20,6 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc1'
-gem 'bootstrap_helper'
-gem "therubyracer"
-gem "less-rails"
-gem "twitter-bootstrap-rails"
 gem "compass-rails"
 gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
