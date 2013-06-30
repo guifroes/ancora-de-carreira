@@ -191,7 +191,7 @@
         </div>
         <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
-          <button ng-disabled="false" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
+          <button ng-disabled="!validate()" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
       </div>
     </div>

@@ -66,15 +66,28 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
     }
   };
 
+  var getSelectedCount = function() {
+    var count = 0;
+    for(var i = 0; i < scope.availableAnswers.length; i++) {
+      if(scope.availableAnswers[i].selected)
+        count ++;
+    }
+    return count;
+  };
+
   scope.validate = function(index) {
-    var isValid = typeof(scope.answer.questions[index].answer) !== "undefined" &&
+    var isValid = false;
+    if(scope.step === 12) {
+      isValid = getSelectedCount() === 3;
+    }
+    else {
+    isValid = typeof(scope.answer.questions[index].answer) !== "undefined" &&
 typeof(scope.answer.questions[index + 1].answer) !== "undefined" &&
 typeof(scope.answer.questions[index + 2].answer) !== "undefined" &&
 typeof(scope.answer.questions[index + 3].answer) !== "undefined" &&
 typeof(scope.answer.questions[index + 4].answer) !== "undefined" 
-
-    //return isValid;
-    return true;
+    }
+    return isValid;
   };
 
   scope.select = function(value) {
