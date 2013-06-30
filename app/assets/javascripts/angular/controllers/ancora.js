@@ -55,6 +55,16 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
     }
   };
 
+  scope.validate = function(index) {
+    var isValid = typeof(scope.answer.questions[index].answer) !== "undefined" &&
+typeof(scope.answer.questions[index + 1].answer) !== "undefined" &&
+typeof(scope.answer.questions[index + 2].answer) !== "undefined" &&
+typeof(scope.answer.questions[index + 3].answer) !== "undefined" &&
+typeof(scope.answer.questions[index + 4].answer) !== "undefined" 
+
+    return isValid;
+  };
+
   scope.select = function(value) {
       scope.selected = value;
   }
