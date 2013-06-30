@@ -61,8 +61,75 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
     }
   };
 
+  scope.topAverage = 0;
+
+  scope.isTopCompetency = function(competency) {
+    return scope.competencies[competency].average === scope.topAverage;
+  };
+
   var calculateResult = function() {
     addPointsForSelected();
+
+    calculateAverages();
+  };
+
+  var calculateAverages = function() {
+    scope.competencies = {
+      technical: [],
+      management: [],
+      autonomy: [],
+      stability: [],
+      creativity: [],
+      service: [],
+      challenge: [],
+      style: []
+    };
+
+    for(var i = 0; i < scope.availableAnswers.length; i++) {
+      switch(scope.availableAnswers[i].id % 8) {
+        case 1:
+          scope.competencies['technical'].push(scope.availableAnswers[i].final_answer);
+          break;
+        case 2:
+          scope.competencies['management'].push(scope.availableAnswers[i].final_answer);
+          break;
+        case 3:
+          scope.competencies['autonomy'].push(scope.availableAnswers[i].final_answer);
+          break;
+        case 4:
+          scope.competencies['stability'].push(scope.availableAnswers[i].final_answer);
+          break;
+        case 5:
+          scope.competencies['creativity'].push(scope.availableAnswers[i].final_answer);
+          break;
+        case 6:
+          scope.competencies['service'].push(scope.availableAnswers[i].final_answer);
+          break;
+        case 7:
+          scope.competencies['challenge'].push(scope.availableAnswers[i].final_answer);
+          break;
+        case 0:
+          scope.competencies['style'].push(scope.availableAnswers[i].final_answer);
+          break;
+      }
+    }
+    
+    for (var key in scope.competencies) {
+      scope.competencies[key].average = average(scope.competencies[key]);
+    }
+
+scope.topAverage = Math.max.apply(null,
+                            Object.keys(scope.competencies).map(function(e) {
+                                                              return scope.competencies[e]['average'];
+                                                                                      }));
+  };
+
+  var average = function(array) {
+    var average = 0;
+    for (var i = 0; i < array.length; i++) {
+      average += array[i];
+    }
+    return average / 5;
   };
 
   var addPointsForSelected = function() {
