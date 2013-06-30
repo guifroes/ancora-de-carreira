@@ -36,22 +36,24 @@ div.question-row {
 
 }
 
+.buttons {
+}
 .reference {
   font-size: 15px;
 }
 
 .content {
-  height: 375px;
+  height: 395px;
   margin: 0px;
   padding: 0px;
-/* border-style: solid;
+/*  border-style: solid;
   border-color: red;
   border-size: 2px;
-  */
+ */ 
 }
 
 .content-scroll {
-  height: 320px;
+  height: 300px;
   overflow: auto;
 }
 

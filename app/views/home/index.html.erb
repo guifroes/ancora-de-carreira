@@ -29,11 +29,12 @@
       <div class="content">
         <h3>Orientações para preenchimento</h3>
         <p>É muito fácil ser tendencioso nas respostas, mas se você for sincero poderá conhecer um pouco mais de si mesmo para começar a preparação de sua carreira profissional. Procure responder às perguntas tão honestamente quanto possível e trabalhar rapidamente.</p>
+     </div>
         <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="false" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-      </div>
+ 
     </div>
     <div ng-switch-when="instructions">
       <div class="content">
@@ -46,156 +47,146 @@
           <li>“6” se a afirmação é sempre verdadeira para você</li>
         </ul>
         <p>Passe para a próxima página e comece sua autoavaliação.</p>
+        </div>
         <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="false" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
-        </div>
       </div>
     </div>
-    <div ng-switch-when="personal" class="content" >
-      <h3>Dados pessoais</h3>
-      <form name="personalDataForm">
-        <fieldset>
-          <label>Nome</label>
-          <input class="span5" type="text" ng-model="answer.name" required>
-          <label>Email</label>
-          <input class="span5" type="email" ng-model="answer.email" required>
-          <label>Instituição de ensino</label>
-          <input class="span5" type="text" ng-model="answer.institution" required>
-          <label>Curso</label>
-          <input class="span5" type="text" ng-model="answer.course" required>
-        </fieldset>
-        <div class="text-right buttons">
-          <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
-          <button ng-disabled="!personalDataForm.$valid" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
-        </div>
-      </form>
+    <div ng-switch-when="personal" >
+      <div class="content">
+        <h3>Dados pessoais</h3>
+        <form name="personalDataForm">
+          <fieldset>
+            <label>Nome</label>
+            <input class="span5" type="text" ng-model="answer.name" required>
+            <label>Email</label>
+            <input class="span5" type="email" ng-model="answer.email" required>
+            <label>Instituição de ensino</label>
+            <input class="span5" type="text" ng-model="answer.institution" required>
+            <label>Curso</label>
+            <input class="span5" type="text" ng-model="answer.course" required>
+          </fieldset>
+        </form>
       </div>
-      <div ng-switch-when="questions1" class="content" >
-        <h3></h3>
-        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:0 | limitTo: 5">
-          <form name="questions1">
-            <ng-include src="'mySnippet'"></ng-include>
-          </form>
+      <div class="text-right buttons">
+        <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
+        <button ng-disabled="!personalDataForm.$valid" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
+      </div>
+      <div ng-switch-when="questions1" >
+        <div class="content">
+          <h3></h3>
+            <div class="row question-row" ng-repeat="question in answer.questions | startFrom:0 | limitTo: 5">
+              <ng-include src="'mySnippet'"></ng-include>
+            </div>
         </div>
         <div class="text-right buttons">
-          <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
-          <button ng-disabled="!validate(0)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
+            <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
+            <button ng-disabled="!validate(0)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
       </div>
-      <div ng-switch-when="questions2" class="content" >
-        <h3></h3>
-        <div class="row question-row"  ng-repeat="question in answer.questions | startFrom:5 | limitTo: 5">
-          <form name="questions2">
+      <div ng-switch-when="questions2">
+        <div class="content">
+          <h3></h3>
+          <div class="row question-row"  ng-repeat="question in answer.questions | startFrom:5 | limitTo: 5">
             <ng-include src="'mySnippet'"></ng-include>
-          </form>
+          </div>
         </div>
         <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="!validate(5)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-
       </div>
-      <div ng-switch-when="questions3" class="content" >
-        <h3></h3>
-        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:10 | limitTo: 5">
-          <ng-include src="'mySnippet'"></ng-include>
+      <div ng-switch-when="questions3">
+        <div class="content">
+          <h3></h3>
+          <div class="row question-row" ng-repeat="question in answer.questions | startFrom:10 | limitTo: 5">
+            <ng-include src="'mySnippet'"></ng-include>
+          </div>
         </div>
         <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="!validate(10)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-
       </div>
-      <div ng-switch-when="questions4" class="content" >
-        <h3></h3>
-        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:15 | limitTo: 5">
-          <ng-include src="'mySnippet'"></ng-include>
+      <div ng-switch-when="questions4">
+        <div class="content">
+          <h3></h3>
+          <div class="row question-row" ng-repeat="question in answer.questions | startFrom:15 | limitTo: 5">
+            <ng-include src="'mySnippet'"></ng-include>
+          </div>
         </div>
-<div class="text-right buttons">
+        <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="!validate(15)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-
       </div>
-      <div ng-switch-when="questions5" class="content" >
-        <h3></h3>
-        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:20 | limitTo: 5">
+      <div ng-switch-when="questions5">
+        <div class="content">
+          <h3></h3>
+          <div class="row question-row" ng-repeat="question in answer.questions | startFrom:20 | limitTo: 5">
             <ng-include src="'mySnippet'"></ng-include>
+          </div>
         </div>
-<div class="text-right buttons">
+        <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="!validate(20)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-
       </div>
-      <div ng-switch-when="questions6" class="content" >
-        <h3></h3>
-        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:25 | limitTo: 5">
-          <ng-include src="'mySnippet'"></ng-include>
+      <div ng-switch-when="questions6">
+        <div class="content">
+          <h3></h3>
+          <div class="row question-row" ng-repeat="question in answer.questions | startFrom:25 | limitTo: 5">
+            <ng-include src="'mySnippet'"></ng-include>
+          </div>
         </div>
-<div class="text-right buttons">
+        <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="!validate(25)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-
       </div>
-      <div ng-switch-when="questions7" class="content" >
-        <h3></h3>
-        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:30 | limitTo: 5">
-          <ng-include src="'mySnippet'"></ng-include>
+      <div ng-switch-when="questions7">
+        <div class="content">
+          <h3></h3>
+          <div class="row question-row" ng-repeat="question in answer.questions | startFrom:30 | limitTo: 5">
+            <ng-include src="'mySnippet'"></ng-include>
+          </div>
         </div>
-<div class="text-right buttons">
+        <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="!validate(30)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-
       </div>
-      <div ng-switch-when="questions8" class="content" >
-        <h3></h3>
-        <div class="row question-row" ng-repeat="question in answer.questions | startFrom:35 | limitTo: 5">
-          <ng-include src="'mySnippet'"></ng-include>
+      <div ng-switch-when="questions8">
+        <div class="content">
+          <h3></h3>
+          <div class="row question-row" ng-repeat="question in answer.questions | startFrom:35 | limitTo: 5">
+            <ng-include src="'mySnippet'"></ng-include>
+          </div>
         </div>
-<div class="text-right buttons">
+        <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="!validate(35)" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-
       </div>
-      <div ng-switch-when="select" class="content" >
-        <h3></h3>
-        <p>Agora, reveja suas respostas e localize todos os itens aos quais deu pontos mais altos.</p>
-        <p>Selecione os TRÊS itens que lhe pareçam os mais verdadeiros.</p>
-        <div class="content-scroll">
-          <div class="row question-row" ng-repeat="question in availableAnswers">
-            <div class="span7 question-text">{{question.text}}</div>
+      <div ng-switch-when="select">
+        <div class="content">
+          <h3></h3>
+          <p>Agora, reveja suas respostas e localize todos os itens aos quais deu pontos mais altos.</p>
+          <p>Selecione os TRÊS itens que lhe pareçam os mais verdadeiros.</p>
+          <div class="content-scroll">
+            <div class="row question-row" ng-repeat="question in availableAnswers">
+              <div class="span7 question-text">
+                {{question.text}}
+              </div>
+            </div>
           </div>
         </div>
-<div class="text-right buttons">
+        <div class="text-right buttons">
           <button class="btn btn-large" ng-click="handlePrevious()" ng-show="!isFirstStep()">Anterior</button>
           <button ng-disabled="!personalDataForm.$valid" class="btn btn-primary btn-large" ng-click="handleNext(dismiss)">{{getNextLabel()}}</button>
         </div>
-
       </div>
-    </div>
-    <hr>
-          <div style="display: none">
-      <span>currently selected for first {{answer.questions[0].answer}}</span>
-      <button type="button" class="btn btn-large btn-primary">Salvar</button> 
-      <table class="table-striped">
-      <tr ng-repeat="question in answer.questions">
-        <td>
-          <p>{{question.text}}</p>
-        </td>
-        <td>
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="1">1
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="2">2
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="3">3
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="4">4
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="5">5
-          <input type="radio" name="question{{$index}}" ng-model="question.answer" value="6">6
-        </td>
-      </tr>
     </div>
   </div>
 </div>
