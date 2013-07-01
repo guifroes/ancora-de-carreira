@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 201306250116000) do
   create_table "answers", force: true do |t|
     t.string   "name"
     t.string   "email"
+    t.text     "institution"
+    t.text     "course"
     t.string   "final_result"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "institution"
-    t.text     "course"
   end
 
   create_table "question_answers", force: true do |t|
