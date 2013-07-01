@@ -56,6 +56,7 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
       }
       else if (scope.step === 12) {
         calculateResult();
+        scope.create();
       }
       scope.step += 1;
     }
@@ -75,41 +76,41 @@ var app = angular.module('ancora').controller('MainCtrl', ['$scope', '$http', fu
 
   var calculateAverages = function() {
     scope.competencies = {
-      technical: [],
-      management: [],
-      autonomy: [],
-      stability: [],
-      creativity: [],
-      service: [],
-      challenge: [],
-      style: []
+      Tecnica: [],
+      Gerencia: [],
+      Autonomia: [],
+      Seguranca: [],
+      Criatividade: [],
+      Servico: [],
+      Desafio: [],
+      Estilo: []
     };
 
     for(var i = 0; i < scope.availableAnswers.length; i++) {
       switch(scope.availableAnswers[i].id % 8) {
         case 1:
-          scope.competencies['technical'].push(scope.availableAnswers[i].final_answer);
+          scope.competencies['Tecnica'].push(scope.availableAnswers[i].final_answer);
           break;
         case 2:
-          scope.competencies['management'].push(scope.availableAnswers[i].final_answer);
+          scope.competencies['Gerencia'].push(scope.availableAnswers[i].final_answer);
           break;
         case 3:
-          scope.competencies['autonomy'].push(scope.availableAnswers[i].final_answer);
+          scope.competencies['Autonomia'].push(scope.availableAnswers[i].final_answer);
           break;
         case 4:
-          scope.competencies['stability'].push(scope.availableAnswers[i].final_answer);
+          scope.competencies['Seguranca'].push(scope.availableAnswers[i].final_answer);
           break;
         case 5:
-          scope.competencies['creativity'].push(scope.availableAnswers[i].final_answer);
+          scope.competencies['Criatividade'].push(scope.availableAnswers[i].final_answer);
           break;
         case 6:
-          scope.competencies['service'].push(scope.availableAnswers[i].final_answer);
+          scope.competencies['Servico'].push(scope.availableAnswers[i].final_answer);
           break;
         case 7:
-          scope.competencies['challenge'].push(scope.availableAnswers[i].final_answer);
+          scope.competencies['Desafio'].push(scope.availableAnswers[i].final_answer);
           break;
         case 0:
-          scope.competencies['style'].push(scope.availableAnswers[i].final_answer);
+          scope.competencies['Estilo'].push(scope.availableAnswers[i].final_answer);
           break;
       }
     }
@@ -183,16 +184,27 @@ typeof(scope.answer.questions[index + 4].answer) !== "undefined"
     var result = [];
 
     for(var i = 0; i < array.length; i++) {
-      if(array[i].answer !== undefined) {
-        result.push({value: array[i].answer});
+      if(array[i].final_answer !== undefined) {
+        result.push({value: array[i].final_answer});
       }
     }
     return result;
   };
 
+  var getResult = function() {
+    var results = "";
+
+    for (var key in scope.competencies) {
+      if (scope.competencies[key].average === scope.topAverage)
+        results += key + "|";
+    }
+
+    return results;
+  };
 
   scope.create = function() {
-    var answers = getAnswersValues(scope.answer.questions);
+    var answers = getAnswersValues(scope.availableAnswers);
+    var result = getResult();
 
     var data = {
       answer: {
@@ -201,7 +213,7 @@ typeof(scope.answer.questions[index + 4].answer) !== "undefined"
                 institution: scope.answer.institution,
                 course: scope.answer.course,
                 question_answers_attributes: answers,
-                final_result: "bla bla"
+                final_result: result
     }};
 
     http.post("/api/answers/", data);
