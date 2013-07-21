@@ -213,7 +213,15 @@ typeof(scope.answer.questions[index + 4].answer) !== "undefined"
                 institution: scope.answer.institution,
                 course: scope.answer.course,
                 question_answers_attributes: answers,
-                final_result: result
+                final_result: result,
+                tecnica: scope.competencies['Tecnica'].average,
+                gerencia: scope.competencies['Gerencia'].average,
+                autonomia: scope.competencies['Autonomia'].average,
+                seguranca: scope.competencies['Seguranca'].average,
+                criatividade: scope.competencies['Criatividade'].average,
+                servico: scope.competencies['Servico'].average,
+                desafio: scope.competencies['Desafio'].average,
+                estilo: scope.competencies['Estilo'].average
     }};
 
     http.post("/api/answers/", data);

@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 201306250116000) do
     t.string   "final_result"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "tecnica"
+    t.decimal  "gerencia"
+    t.decimal  "autonomia"
+    t.decimal  "seguranca"
+    t.decimal  "criatividade"
+    t.decimal  "desafio"
+    t.decimal  "estilo"
+    t.decimal  "servico"
   end
 
   create_table "question_answers", force: true do |t|
