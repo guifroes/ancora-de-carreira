@@ -56,5 +56,6 @@ production:
   encoding: unicode
   database: ancora-de-carreira_production
   pool: 5
+  sslmode: require
   username: ancora-de-carreira
   password:
