@@ -1,3 +1,3 @@
 //= link_tree ../images
-//= link application.css
-//= link application.js
+//= link ../stylesheets/application.css
+//= link ../javascripts/application.js
