@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-ruby '2.6.8'
+ruby '2.7.4'
 
 #gem 'rails_12factor'
 group :production do
