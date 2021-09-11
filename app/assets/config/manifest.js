@@ -1,6 +1,6 @@
 // app/assets/config/manifest.js
 //
-//= link application.css
+//= link stylesheets/application.css
 
 //
-//= link application.js
+//= link javascripts/application.js
