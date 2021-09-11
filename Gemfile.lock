@@ -226,7 +226,7 @@ DEPENDENCIES
   rails3_serve_static_assets!
   rails_12factor
   rails_log_stdout!
-  sass-rails
+  sass-rails (>= 5)
   sdoc
   thin
   turbolinks

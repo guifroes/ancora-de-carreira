@@ -19,7 +19,7 @@ gem 'rails', '6.1.4.1'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '>= 5'
 gem "compass-rails"
 gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
