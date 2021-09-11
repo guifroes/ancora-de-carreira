@@ -14,7 +14,7 @@ end
 #gem 'angularjs-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'<<<<<<< HEAD
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.16'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
