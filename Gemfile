@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.6.8'
 
 #gem 'rails_12factor'
 group :production do
@@ -13,7 +13,7 @@ end
 #gem 'angularjs-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
