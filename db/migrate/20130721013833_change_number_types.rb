@@ -1,4 +1,4 @@
-class ChangeNumberTypes < ActiveRecord::Migration
+class ChangeNumberTypes < ActiveRecord::Migration[4.2]
   def change
     change_column :answers, :tecnica, :decimal
     change_column :answers, :gerencia, :decimal

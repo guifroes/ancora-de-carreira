@@ -154,6 +154,7 @@ scope.topAverage = Math.max.apply(null,
   scope.validate = function(index) {
     var isValid = false;
     if(scope.step === 12) {
+      console.log('hahahah');
       isValid = getSelectedCount() === 3;
     }
     else {

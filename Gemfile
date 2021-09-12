@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-ruby '2.7.4'
+ruby '3.0.2'
 
 #gem 'rails_12factor'
 group :production do
@@ -11,10 +11,14 @@ group :production do
   gem 'rails_12factor'
 end
 
-#gem 'angularjs-rails'
+group :development do
+  gem 'sqlite3-ruby'
+end
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'<<<<<<< HEAD
-gem 'rails', '4.1.16'
+gem 'angularjs-rails'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '6.1.4'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -22,7 +26,8 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 5'
 # gem "compass-rails"
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
+gem 'bootstrap', '~> 5.1.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

@@ -1,4 +1,4 @@
-class RemovinAnswerColumns < ActiveRecord::Migration
+class RemovinAnswerColumns < ActiveRecord::Migration[4.2]
   def change
     remove_column :answers, :answer_1
     remove_column :answers, :answer_2

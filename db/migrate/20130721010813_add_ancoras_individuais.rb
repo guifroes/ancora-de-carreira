@@ -1,4 +1,4 @@
-class AddAncorasIndividuais < ActiveRecord::Migration
+class AddAncorasIndividuais < ActiveRecord::Migration[4.2]
   def change
     add_column :answers, :tecnica, :integer
     add_column :answers, :gerencia, :integer
